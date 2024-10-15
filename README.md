@@ -58,7 +58,7 @@ Located within the `main/java/com/revature` folder, the file `Main.java` should 
 - Provide the `Main` class with the correct `private` `static` fields, initialize them in the `main` method, and have the `main` method start a Javalin instance.
 
 ### 8: The application should allow only authorized users to perform certain tasks.
-For this step, you will be implementing a check to make sure only admins are allowed to access certain endpoints in our application. For this, you will want to take a look at the `RecipeController` and `IngredientController` classes, as well as the J`avalinAppUtil` to see the different endpoints. Your main task will be to create a middleware class that intercepts every request, checks if the username is an admin, checks which endpoint they are trying to access, and decides whether to allow/deny the request.
+For this step, you will be implementing a check to make sure only admins are allowed to access certain endpoints in our application. For this, you will want to take a look at the `RecipeController` and `IngredientController` classes, as well as the `JavalinAppUtil` to see the different endpoints. Your main task will be to create a middleware class that intercepts every request, checks if the username is an admin, checks which endpoint they are trying to access, and decides whether to allow/deny the request.
 
 Located within the `main/java/com/revature/util` folder, the file `AdminMiddleware.java` should be present. Read the comments in the file in order to complete the below tasks:
 - Provide the `AdminMiddleware` class the appropriate fields, constructor, and methods so that only admins can create, delete, or update ingredients.
