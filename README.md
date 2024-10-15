@@ -11,6 +11,8 @@ Located within the `main/java/com/revature/model` folder, the files `Recipe.java
 - Provide the `Recipe` class with the overridden `equals()` and `hashCode()` methods.
 - Provide the `Chef` class with the correct fields, no-args and parameterized constructors, and getter/setter methods.
 - Provide the `Chef` class with the overridden `equals()` and `hashCode()` methods.
+- Provide the `Ingredient` class with the correct fields, no-args and parameterized constructors, and getter/setter methods.
+- Provide the `Ingredient` class with the overridden `equals()` and `hashCode()` methods.
 
 ### 2: The application should provide a database setup script.
 Located within the `main/resources` folder, the file `ddl.sql` should be present. The file's purpose is to contain database setup statements. Read the SQL comments in the file in order to complete the below tasks:
