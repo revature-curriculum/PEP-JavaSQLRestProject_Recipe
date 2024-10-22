@@ -1,4 +1,4 @@
-# Project: RevaRecipe (Back-End)
+# Project: RecipeHub (Back-End)
 
 ## Background
 This project is a Java-based backend application designed to manage recipes, chefs, and ingredients, using object-oriented programming principles and a relational database. The application restricts access to certain functionalities to admin users and uses a layered architecture structure.
