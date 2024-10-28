@@ -58,4 +58,9 @@ public class AuthenticationController {
     public void authorizationFilter() {
         // Implementation
     }
+    public void configureRoutes(Javalin app) {
+        // TODO Auto-generated method stub
+     throw new UnsupportedOperationException("Unimplemented method 'configureRoutes'");
+    }
+
 }
