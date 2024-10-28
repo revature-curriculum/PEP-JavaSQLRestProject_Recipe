@@ -1,6 +1,7 @@
 package com.revature.util;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Driver; 
 
 /**
  * The ConnectionUtil class follows the singleton pattern, ensuring that 
