@@ -1,18 +1,4 @@
--- Recipe Table
--- This table stores information about recipes.
--- Fields:
--- 1. id: An auto-incremented primary key to uniquely identify each recipe.
--- 2. name: A unique and non-nullable varchar field to store the recipe's name.
--- 3. instructions: A non-nullable varchar field to store the recipe's instructions.
--- 4. chef_id: A foreign key that references the 'id' field from the Chef table.
 
-CREATE TABLE RECIPE (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) UNIQUE NOT NULL,
-    instructions VARCHAR(255) NOT NULL,
-    chef_id INT,
-    FOREIGN KEY (chef_id) REFERENCES CHEF(id)
-);
 
 -- Chef Table
 -- This table stores information about chefs.
@@ -29,6 +15,22 @@ CREATE TABLE CHEF (
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     is_admin BOOLEAN
+);
+
+-- Recipe Table
+-- This table stores information about recipes.
+-- Fields:
+-- 1. id: An auto-incremented primary key to uniquely identify each recipe.
+-- 2. name: A unique and non-nullable varchar field to store the recipe's name.
+-- 3. instructions: A non-nullable varchar field to store the recipe's instructions.
+-- 4. chef_id: A foreign key that references the 'id' field from the Chef table.
+
+CREATE TABLE RECIPE (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL,
+    instructions VARCHAR(255) NOT NULL,
+    chef_id INT,
+    FOREIGN KEY (chef_id) REFERENCES CHEF(id)
 );
 
 -- Ingredient Table
