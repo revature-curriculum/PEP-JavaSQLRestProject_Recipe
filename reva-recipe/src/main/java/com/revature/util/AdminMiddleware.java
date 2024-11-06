@@ -1,91 +1,62 @@
 package com.revature.util;
-import com.revature.service.ChefService;
 
 import io.javalin.http.Context;
-import io.javalin.http.HandlerType;
+import io.javalin.http.Handler;
+import io.javalin.http.UnauthorizedResponse;
+import com.revature.model.Chef;
+import com.revature.service.ChefService;
+
 /**
- * The AdminMiddleware class is responsible for enforcing access control 
- * within the application by protecting specific routes from non-admin users. 
- * This class utilizes a list of protected methods to determine which HTTP 
- * methods require admin access and leverages the ChefService to validate 
- * user permissions. The middleware intercepts requests and ensures that 
- * only users with admin privileges can access protected resources.
+ * Middleware for enforcing admin access control on protected HTTP methods.
+ * This class checks if the user is an admin before allowing access to certain routes.
  */
+public class AdminMiddleware implements Handler {
 
-public class AdminMiddleware {
-
-    /**
-     * An array of protected HTTP methods that require admin access.
-     */
-
+    /** Array of HTTP methods that require admin access. */
     private String[] protectedMethods;
 
-    /**
-     * The ChefService instance used for handling chef-related operations 
-     * and validation.
-     */
-
-    @SuppressWarnings("unused")
+    /** Service for managing Chef entities. */
     private ChefService chefService;
 
     /**
-     * Constructs an AdminMiddleware instance with the specified ChefService 
-     * and an array of protected methods.
+     * Constructs an AdminMiddleware instance with the specified ChefService and protected methods.
      *
-     * @param chefService the ChefService instance for handling operations
-     * @param protectedMethods the array of protected HTTP methods
+     * @param chefService the ChefService used to retrieve Chef details.
+     * @param protectedMethods variable-length argument list of HTTP methods that require admin access.
      */
-
     public AdminMiddleware(ChefService chefService, String... protectedMethods) {
-        this.chefService = chefService;
         this.protectedMethods = protectedMethods;
+        this.chefService = chefService;
     }
 
     /**
-     * Handles the incoming request by checking if the method is protected 
-     * and whether the user has admin privileges.
+     * Handles the HTTP request, checking for admin access based on the HTTP method and user session.
      *
-     * @param ctx the Javalin context representing the HTTP request and response
+     * @param ctx the Javalin context containing the request and response information.
+     * @throws Exception if an error occurs while processing the request or if access is denied.
      */
-
-    public void handle(Context ctx) {
-        if (isProtectedMethod(ctx.method()) && !isAdmin(ctx)) {
-            ctx.status(403).result("Access Denied: Admins only");
-        }
-    }
-
-    private boolean isProtectedMethod(HandlerType method) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isProtectedMethod'");
+    @Override
+    public void handle(Context ctx) throws Exception {
+        
     }
 
     /**
-     * Checks if the specified HTTP method is in the list of protected methods.
+     * Checks if the specified HTTP method is among the protected methods.
      *
-     * @param handlerType the HTTP method to check
-     * @return true if the method is protected; false otherwise
+     * @param method the HTTP method to check.
+     * @return true if the method is protected; false otherwise.
      */
-
-    public boolean isProtectedMethod(String handlerType) {
-        for (String protectedMethod : protectedMethods) {
-            if (protectedMethod.equalsIgnoreCase(handlerType)) {
-                return true;
-            }
-        }
+    private boolean isProtectedMethod(String method) {
         return false;
     }
 
     /**
-     * Determines whether the current user has admin privileges.
+     * Determines if the chef with the specified ID has admin privileges.
      *
-     * @param ctx the Javalin context representing the HTTP request and response
-     * @return true if the user is an admin; false otherwise
+     * @param chefId the unique identifier of the chef.
+     * @return true if the chef is an admin; false otherwise.
      */
-    
-    public boolean isAdmin(Context ctx) {
-        // Logic to determine if the user is an admin
-        // This may involve checking the session or user roles
-        return false; // Placeholder logic
+    private boolean isAdmin(int chefId) {
+        return false;
     }
 }
-
