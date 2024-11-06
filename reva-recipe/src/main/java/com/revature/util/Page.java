@@ -13,58 +13,30 @@ import java.util.Objects;
  * hashCode methods, which are essential for comparing Page objects 
  * and storing them in collections.
  *
+ * You do not need to edit this class.
+ * 
  * @param <E> the type of elements in the page
  */
 
 public class Page<E> {
 
-    /**
-     * The current page number.
-     */
+    // fields
 
+    /** The current page number. */
     private int pageNumber;
-
-    /**
-     * The size of the page, or the number of items per page.
-     */
-
+    /** The size of the page, or the number of items per page. */
     private int pageSize;
-
-    /**
-     * The total number of pages available.
-     */
-
+    /** The current page number. */
     private int totalPages;
-
-    /**
-     * The total number of elements across all pages.
-     */
-
+    /** The total number of pages available. */
     private int totalElements;
-
-    /**
-     * The list of items on the current page.
-     */
-
+    /** The total number of elements across all pages. */
     private List<E> items;
 
-    /**
-     * Default constructor for Page.
-     */
-
+    // constructors
     public Page() {
-        // Default constructor
+      
     }
-
-    /**
-     * Constructs a Page with the specified parameters.
-     *
-     * @param pageNumber the current page number
-     * @param pageSize the size of the page
-     * @param totalPages the total number of pages
-     * @param totalElements the total number of elements
-     * @param items the list of items on the current page
-     */
 
     public Page(int pageNumber, int pageSize, int totalPages, int totalElements, List<E> items) {
         this.pageNumber = pageNumber;
@@ -74,8 +46,7 @@ public class Page<E> {
         this.items = items;
     }
 
-    // Getters and setters for each field
-
+    // getters and setters
     public int getPageNumber() {
         return pageNumber;
     }
@@ -121,7 +92,6 @@ public class Page<E> {
      *
      * @return the hash code value for this Page
      */
-
     @Override
     public int hashCode() {
         return Objects.hash(pageNumber, pageSize, totalPages, totalElements, items);
@@ -134,7 +104,6 @@ public class Page<E> {
      * @return true if the specified object is equal to this Page; 
      *         false otherwise
      */
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj){

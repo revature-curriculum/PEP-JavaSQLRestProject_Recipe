@@ -1,92 +1,81 @@
 package com.revature.service;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+
 import com.revature.model.Chef;
 
-
 /**
- * The AuthenticationService class provides authentication functionality
- * for Chef objects. It manages the login, logout, and registration
- * processes, as well as session management for chefs. This service 
- * utilizes a ChefService to perform operations related to chefs and 
- * maintains a session map to track active sessions.
+ * The AuthenticationService class handles user authentication, including login, logout, registration, and session management for users. 
+ * 
+ * This class utilizes the ChefService to interact with chef data.
  */
-
 public class AuthenticationService {
 
-    /**
-     * The service used for managing Chef objects and their operations.
-     */
+	/** Service for chef-related operations. */
+	private ChefService chefService;
 
-    @SuppressWarnings("unused")
-    private ChefService chefService;
+	/** A map that stores active sessions, with session tokens as keys and chefs as values. */
+	private Map<String, Chef> sessionMap = new HashMap<String, Chef>();
 
-    /**
-     * A map that stores active sessions for chefs, indexed by session token.
-     */
-
-    @SuppressWarnings("unused")
-    private Map<String, Chef> sessionMap;
-
-    /**
+	/**
      * Constructs an AuthenticationService with the specified ChefService.
      *
-     * @param chefService the ChefService to be used by this authentication service
+     * @param chefService the service used to manage chef-related operations
      */
+	public AuthenticationService(ChefService chefService) {
+		this.chefService = chefService;
+	}
 
-    public AuthenticationService(ChefService chefService) {
-        this.chefService = chefService;
-        this.sessionMap = new HashMap<>(); // Initializing the session map
-    }
-
-    /**
-     * Logs in a chef by validating their credentials and creating a session.
+	/**
+     * Authenticates a chef by verifying the provided credentials. If successful, a session token is generated and stored in the session map.
      *
-     * @param chef the Chef object containing login credentials
-     * @return a session token if the login is successful; null otherwise
+     * @param chef the chef object containing username and password for authentication
+     * @return a unique session token if login is successful, or null if authentication fails
      */
+	public String login(Chef chef) {
+		List<Chef> existingChefs = chefService.searchChefs(chef.getUsername());
+		for (Chef c : existingChefs) {
+			if (c.getUsername().equals(chef.getUsername()) && c.getPassword().equals(chef.getPassword())) {
+				String token = UUID.randomUUID().toString();
+				sessionMap.put(token, c);
+				return token;
+			}
+		}
 
-    public String login(Chef chef) {
-       
-        // Implementation
+		return null;
+	}
 
-        return null; //return a session token if the login is successful; null otherwise
-
-    }
-
-    /**
-     * Logs out a chef by invalidating their session token.
+	/**
+     * Logs out a chef by removing the associated session token from the session map.
      *
-     * @param token the session token of the chef to be logged out
+     * @param token the session token to be invalidated
      */
+	public void logout(String token) {
+		sessionMap.remove(token);
+	}
 
-    public void logout(String token) {
-        // Implementation
-    }
-
-    /**
-     * Registers a new chef and adds them to the system.
+	/**
+     * Registers a new chef by saving the chef's information using ChefService.
      *
-     * @param chef the Chef object to be registered
-     * @return the registered Chef object with any generated fields populated
+     * @param chef the chef object containing registration details
+     * @return the registered chef object
      */
+	public Chef registerChef(Chef chef) {
+		chefService.saveChef(chef);
+		return chef;
+	}
 
-    public Chef registerChef(Chef chef) {
-        // Implementation
-        return chef; //return he registered Chef object with any generated fields populated
-
-    }
-
-    /**
-     * Retrieves a Chef object from the session token.
+	/**
+     * Retrieves the chef associated with a specific session token.
      *
-     * @param token the session token used to retrieve the chef
-     * @return the Chef object associated with the session token; null if not found
+     * @param token the session token associated with the chef
+     * @return the chef associated with the token, or null if the token is invalid
      */
-	
-    public Chef getChefFromSessionToken(String token) {
-        // Implementation
-        return null; //return the Chef object associated with the session token; null if not found
+	public Chef getChefFromSessionToken(String token) {
+		return sessionMap.get(token);
+	}
 
-    }
 }

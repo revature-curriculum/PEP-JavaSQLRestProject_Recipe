@@ -45,7 +45,7 @@ public class JavalinAppUtil {
      * @param ingredientController the controller for handling ingredient operations
      */
 
-    public JavalinAppUtil(RecipeController recipeController, AuthenticationController authController, IngredientController ingredientController) {
+    public JavalinAppUtil(RecipeController recipeController, AuthenticationController authController, IngredientController ingredientController, AdminMiddleware adminMiddleware) {
         this.recipeController = recipeController;
         this.authenticationController = authController;
         this.ingredientController = ingredientController;
@@ -66,7 +66,7 @@ public class JavalinAppUtil {
         authenticationController.configureRoutes(app);
         ingredientController.configureRoutes(app);
 
-        // Apply admin middleware
+        // TODO: Apply admin middleware?????
         app.before("/admin/*", ctx -> {
             // Admin middleware logic here
         });
