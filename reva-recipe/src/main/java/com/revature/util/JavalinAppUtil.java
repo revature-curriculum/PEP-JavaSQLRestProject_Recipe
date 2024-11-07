@@ -38,6 +38,11 @@ public class JavalinAppUtil {
     private IngredientController ingredientController;
 
     /**
+     * An AdminMiddlware instance to ensure routes are protected.
+     */
+    private AdminMiddleware	adminMiddleware;
+
+    /**
      * Constructs a JavalinAppUtil with the specified controllers.
      *
      * @param recipeController the controller for handling recipe operations
@@ -45,7 +50,7 @@ public class JavalinAppUtil {
      * @param ingredientController the controller for handling ingredient operations
      */
 
-    public JavalinAppUtil(RecipeController recipeController, AuthenticationController authController, IngredientController ingredientController) {
+    public JavalinAppUtil(RecipeController recipeController, AuthenticationController authController, IngredientController ingredientController, AdminMiddleware adminMiddleware) {
         this.recipeController = recipeController;
         this.authenticationController = authController;
         this.ingredientController = ingredientController;
@@ -66,10 +71,7 @@ public class JavalinAppUtil {
         authenticationController.configureRoutes(app);
         ingredientController.configureRoutes(app);
 
-        // Apply admin middleware
-        app.before("/admin/*", ctx -> {
-            // Admin middleware logic here
-        });
+        app.before("/recipe", adminMiddleware);
 
         return app;
     }
