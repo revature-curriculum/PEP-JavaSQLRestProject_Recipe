@@ -41,8 +41,7 @@ Review the following files and their related javadoc comments in order to ensure
 ### 6: The application should allow only authorized users to perform certain tasks.
 For this step, you will be implementing a check to make sure only admins are allowed to access certain endpoints in our application. For this, you will want to take a look at the `RecipeController` and `IngredientController` classes, as well as the `JavalinAppUtil` to see the different endpoints. Your main task will be to update a middleware class so that it intercepts every request, checks if the username is an admin, checks which endpoint they are trying to access, and decides whether to allow/deny the request.
 
-Located within the `main/java/com/revature/util` folder, the file `AdminMiddleware.java` should be present. Read the comments in this file in order to complete the below tasks:
-- Provide the `AdminMiddleware` class with implmenetations for the `handle()`, `isProtectedMethod()` and `isAdmin()` methods so that only admins can create, delete, or update ingredients and only admins can delete recipes.
+Located within the `main/java/com/revature/util` folder, the file `AdminMiddleware.java` should be present. This file includes the `handle()`, `isProtectedMethod()` and `isAdmin()` methods so that only admins can create, delete, or update ingredients and only admins can delete recipes.
 
 
 
