@@ -54,6 +54,7 @@ public class JavalinAppUtil {
         this.recipeController = recipeController;
         this.authenticationController = authController;
         this.ingredientController = ingredientController;
+        this.adminMiddleware = adminMiddleware;
     }
 
     /**
