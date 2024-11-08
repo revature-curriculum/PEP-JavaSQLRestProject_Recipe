@@ -63,16 +63,6 @@ public class AuthenticationController {
     }
 
     /**
-     * TODO: Authorization filter to restrict access to certain routes.
-     * Checks if a user is logged in and has admin privileges; if not, denies access with a 403 Forbidden status and a result of "Access denied" and redirects to the login page.
-     *
-     * @param ctx the Javalin context of the incoming request
-     */
-    public void authorizationFilter(Context ctx) {
-        
-    }
-
-    /**
      * Configures the routes for authentication operations.
      * Sets up routes for registration, login, and logout, and applies the authorization filter to protect specific routes.
      *
@@ -83,7 +73,5 @@ public class AuthenticationController {
         app.post("/login", this::login);
         app.post("/logout", this::logout);
 
-        // Protect routes with authentication
-        app.before("/protected/*", this::authorizationFilter);
     }
 }
