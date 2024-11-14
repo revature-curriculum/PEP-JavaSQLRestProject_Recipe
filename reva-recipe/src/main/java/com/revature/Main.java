@@ -11,8 +11,10 @@ import com.revature.service.ChefService;
 import com.revature.service.IngredientService;
 import com.revature.service.RecipeService;
 import com.revature.util.AdminMiddleware;
-import com.revature.util.ConnectionUtil;
+import com.revature.util.DBUtil;
 import com.revature.util.JavalinAppUtil;
+import java.sql.SQLException;
+import io.javalin.Javalin;
 
 /**
  * The Main class serves as the entry point for the application.
@@ -49,11 +51,6 @@ public class Main {
     @SuppressWarnings("unused")    
     private static RecipeDAO RECIPE_DAO;
 
-    /** 
-     * Utility class for managing database connections.
-     */
-    @SuppressWarnings("unused")    
-    private static ConnectionUtil CONNECTION_UTIL;
 
     /** 
      * Data Access Object for interacting with chef data storage.
@@ -110,8 +107,38 @@ public class Main {
      * @param args Command line arguments passed during application startup.
      */
     
-    public static void main(String[] args) {
-        // Application initialization logic goes here.
+    public static void main(String[] args) throws SQLException {
+	
+
+		INGREDIENT_DAO = new IngredientDAO();
+		
+		CHEF_DAO = new ChefDAO();
+		
+		RECIPE_DAO = new RecipeDAO(CHEF_DAO, INGREDIENT_DAO);
+		
+		CHEF_SERVICE = new ChefService(CHEF_DAO);
+		
+		AUTH_SERVICE = new AuthenticationService(CHEF_SERVICE);
+		
+		RECIPE_SERVICE = new RecipeService(RECIPE_DAO);
+		
+		RECIPE_CONTROLLER = new RecipeController(RECIPE_SERVICE, AUTH_SERVICE);
+		
+		INGREDIENT_SERVICE = new IngredientService(INGREDIENT_DAO);
+		
+		INGREDIENT_CONTROLLER = new IngredientController(INGREDIENT_SERVICE);
+		
+		ADMIN_MIDDLEWARE = new AdminMiddleware(CHEF_SERVICE);
+		
+		AUTH_CONTROLLER = new AuthenticationController(CHEF_SERVICE, AUTH_SERVICE);
+		
+		JAVALIN_APP_UTIL = new JavalinAppUtil(RECIPE_CONTROLLER, AUTH_CONTROLLER, INGREDIENT_CONTROLLER, ADMIN_MIDDLEWARE);
+		
+		DBUtil.RUN_SQL();
+		
+		Javalin app = JAVALIN_APP_UTIL.getApp();
+		
+		app.start(8081);
     }
 }
 
