@@ -10,30 +10,30 @@ This project is a Java-based backend application designed to manage recipes, che
 
 ## Requirements
 
-### 1: The application should provide a database setup script.
+### 1: As a user, I want the application to set up the database with all necessary tables so that my data for chefs, recipes, and ingredients is properly stored and accessible.
 Located within the `main/resources` folder, the file `sqlScipt.sql` should be present. The file's purpose is to contain database setup statements, including creating, connecting, and populating tables. Read the SQL comments in the file in order to complete the below tasks:
 - Complete the `CREATE TABLE` statement that represents a `Chef` entity in your database.
 - Complete the `CREATE TABLE` statement that represents a `Recipe` entity in your database.
 - Complete the `CREATE TABLE` statement that represents an `Ingredient` entity in your database, as well as a join table named `RecipeIngredient` that manages the relationships between this table and the `Recipe` table.
 
-### 2: The application should be able to perform CRUD operations on recipes as well as search recipes by terms.
+### 2: As a user, I want to create, update, delete, and search for recipes by keywords so that I can easily manage and find recipes.
 Review the following files and their related javadoc comments in order to ensure the user can retrieve, create, update, and delete recipes, as well as search for them by providing a search term:
 - `src/main/java/com/revature/dao/RecipeDAO.java`
 - `src/main/java/com/revature/service/RecipeService.java`
 - `src/main/java/com/revature/controller/RecipeController.java`
 
-### 3: The application should be able to perform CRUD operations on ingredients as well as search ingredients by terms.
+### 3: As a user, I want to create, update, delete, and search for ingredients by keywords so that I can manage the ingredients used in my recipes.
 Review the following files and their related javadoc comments in order to ensure the user can retrieve, create, update, and delete recipes, as well as search for them by providing a search term:
 - `src/main/java/com/revature/dao/IngredientDAO.java`
 - `src/main/java/com/revature/service/IngredientService.java`
 - `src/main/java/com/revature/controller/IngredientController.java`
 
-### 4: The application should be able to perform CRUD operations on chefs as well as search chefs by terms.
+### 4: As a user, I want to create, update, delete, and search for chefs by keywords so that I can maintain accurate information about the chefs associated with my recipes.
 Review the following files and their related javadoc comments in order to ensure the there is functionality to retrieve, create, update, and delete chefs, as well as search for them by providing a search term:
 - `src/main/java/com/revature/dao/ChefDAO.java`
 - `src/main/java/com/revature/service/ChefService.java`
 
-### 5. The user should be able to log in, log out, and register a new chef.
+### 5. As a user, I want to log in, log out, and register as a chef so that I can securely access and manage my account.
 Review the following files and their related javadoc comments in order to ensure the there is functionality to log in, log out, and register a new chef:
 - `src/main/java/com/revature/service/AuthenticationService.java`
 - `src/main/java/com/revature/controller/AuthenticationController.java`
