@@ -37,7 +37,16 @@ public class AdminMiddleware implements Handler {
      */
     @Override
     public void handle(Context ctx) throws Exception {
-        
+        if (isProtectedMethod(ctx.method().name())) {
+            boolean isAdmin = isAdmin(ctx.sessionAttribute("chefId"));
+
+            if (isAdmin) {
+                // Chef is an admin, allow access to the route
+            } else {
+                // Chef is not an admin, deny access
+                throw new UnauthorizedResponse("Access denied");
+            }
+        }
     }
 
     /**
@@ -47,6 +56,11 @@ public class AdminMiddleware implements Handler {
      * @return true if the method is protected; false otherwise.
      */
     private boolean isProtectedMethod(String method) {
+        for (String protectedMethod : protectedMethods) {
+            if (protectedMethod.toString().equalsIgnoreCase(method)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -57,6 +71,8 @@ public class AdminMiddleware implements Handler {
      * @return true if the chef is an admin; false otherwise.
      */
     private boolean isAdmin(int chefId) {
-        return false;
+        Chef chef = chefService.findChef(chefId).get();
+        return chef.isAdmin();
+
     }
 }
