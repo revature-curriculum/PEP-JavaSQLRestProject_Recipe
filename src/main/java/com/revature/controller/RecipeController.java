@@ -1,35 +1,33 @@
 package com.revature.controller;
 
-import com.revature.model.Chef;
-import com.revature.model.Recipe;
-import com.revature.service.AuthenticationService;
-import com.revature.service.RecipeService;
-import com.revature.util.Page;
-
+import io.javalin.http.Handler;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
-import io.javalin.http.Handler;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import com.revature.service.AuthenticationService;
+import com.revature.service.RecipeService;
 
 /**
- * The RecipeController class provides RESTful endpoints for managing recipes. It interacts with the RecipeService to fetch, create, update, and delete recipes.
- * 
+ * The RecipeController class provides RESTful endpoints for managing recipes.
+ * It interacts with the RecipeService to fetch, create, update, and delete recipes.
  * Handlers in this class are fields assigned to lambdas, which define the behavior for each endpoint.
  */
+
 public class RecipeController {
 
-    /** A service that handles recipe-related operations. */
+    /** The service used to interact with the recipe data. */
+    @SuppressWarnings("unused")
     private RecipeService recipeService;
+
     /** A service that handles authentication-related operations. */
+    @SuppressWarnings("unused")
     private AuthenticationService authService;
 
     /**
-     * TODO: Implement a constructor that initializes the RecipeController with the provided RecipeService.
+     * TODO: Constructor that initializes the RecipeController with the parameters.
      * 
      * @param recipeService The service that handles the business logic for managing recipes.
+     * * @param authService the service used to manage authentication-related operations
      */
     public RecipeController(RecipeService recipeService, AuthenticationService authService) {
         
@@ -40,7 +38,7 @@ public class RecipeController {
      * 
      * Responds with a 200 OK status and the list of recipes, or 404 Not Found with a result of "No recipes found".
      */
-    public Handler fetchAllRecipes=  ctx -> {
+    public Handler fetchAllRecipes = ctx -> {
         
     };
 
@@ -54,30 +52,32 @@ public class RecipeController {
     };
 
     /**
-     * TODO: Handler for creating a new recipe. Requires authentication via an authorization token. 
+     * TODO: Handler for creating a new recipe. Requires authentication via an authorization token taken from the request header.
      * 
      * If successful, responds with a 201 Created status.
      * If unauthorized, responds with a 401 Unauthorized status.
      */
     public Handler createRecipe = ctx -> {
-        
+       
     };
 
     /**
-     * TODO: Handler for deleting a recipe by its ID.
-     * Responds with a 204 No Content status.
+     * TODO: Handler for deleting a recipe by its id.
+     * 
+     * Responds with a 200 OK status.
      */
     public Handler deleteRecipe = ctx -> {
-
+        int id = Integer.parseInt(ctx.pathParam("id"));
+        recipeService.deleteRecipe(id);
     };
 
     /**
      * TODO: Handler for updating a recipe by its ID.
      * 
-     * Responds with a 204 No Content status if the update is successful.
+     * Responds with a 200 OK status.
      */
     public Handler updateRecipe = ctx -> {
-        
+
     };
 
     /**

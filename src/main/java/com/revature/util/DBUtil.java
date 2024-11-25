@@ -15,7 +15,6 @@ public class DBUtil {
 	
 	/** A mutable text object that will contain the contents of a file once initialized. */
 	private static StringBuilder sqlScript = new StringBuilder();
-	
 	private static InputStream inputStream =  DBUtil.class.getResourceAsStream("/sqlScript.sql");
 	
 

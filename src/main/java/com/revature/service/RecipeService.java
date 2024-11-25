@@ -21,16 +21,16 @@ public class RecipeService {
     private RecipeDAO recipeDAO;
 
     /**
-     * TODO: Implement a constructor that initializes an instance of this class with the specified RecipeDAO.
+     * TODO: Constructs a RecipeService with the specified RecipeDao.
      *
-     * @param recipeDAO the RecipeDAO to be used by this service for data access
+     * @param recipeDao the RecipeDao to be used by this service for data access
      */
     public RecipeService(RecipeDAO recipeDAO) {
         
     }
 
     /**
-     * Finds a Recipe by its unique identifier.
+     * TODO: Finds a Recipe by its unique identifier.
      *
      * @param id the unique identifier of the recipe to be found
      * @return an Optional containing the found Recipe if present;
@@ -41,9 +41,9 @@ public class RecipeService {
     }
 
     /**
-     * Saves a Recipe object to the data store. If the id is 0, create a new Recipe and set the `recipe` id field to the updated id.
+     * TODO: Saves a Recipe object to the data store. If the id is 0, create a new Recipe and set the `recipe` id field to the updated id.
      * 
-     * Otherwise, updates the recipe.
+     * Otherwise, updates the recipe's instructions and chef id.
      *
      * @param recipe the Recipe object to be saved
      */
@@ -52,7 +52,7 @@ public class RecipeService {
     }
 
     /**
-     * Searches for recipes with pagination and sorting options.
+     * TODO: Searches for recipes with pagination and sorting options.
      *
      * @param term          the search term used to find recipes
      * @param page          the page number to retrieve
@@ -66,7 +66,7 @@ public class RecipeService {
     }
 
     /**
-     * Searches for recipes based on a search term.
+     * TODO: Searches for recipes based on a search term.
      *
      * @param term the search term used to find recipes
      * @return a list of Recipe objects that match the search term
@@ -76,7 +76,7 @@ public class RecipeService {
     }
 
     /**
-     * Deletes a Recipe by its unique identifier.
+     * TODO: Deletes a Recipe by its unique identifier.
      *
      * @param id the unique identifier of the recipe to be deleted
      */

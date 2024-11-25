@@ -1,142 +1,140 @@
 package com.revature.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
-import com.revature.model.Chef;
-import com.revature.model.Recipe;
-import com.revature.model.RecipeIngredient;
 import com.revature.util.ConnectionUtil;
 import com.revature.util.Page;
 import com.revature.util.PageOptions;
+import com.revature.model.Chef;
+import com.revature.model.Recipe;
+
+
 
 /**
- * Data Access Object (DAO) for managing Recipe entities in the database.
- * This class provides methods for creating, reading, updating, and deleting
- * recipes,
- * as well as searching for recipes by various criteria.
+ * The RecipeDAO class abstracts the CRUD operations for Recipe objects.
+ * This class utilizes the previously created classes and primarily functions as a pure functional class, meaning it doesn't store state apart from a  reference to ConnectionUtil for database connection purposes. 
+ * 
+ * Although the implementation may seem extensive for simple functionality, this design improves testability, maintainability, and extensibility of the overall infrastructure.
  */
+
 public class RecipeDAO {
 
-	/**
-	 * DAO for managing Chef entities, used for retrieving chef details associated
-	 * with recipes.
+    /**
+	 * DAO for managing Chef entities, used for retrieving chef details associated with recipes.
 	 */
 	private ChefDAO chefDAO;
-	/**
-	 * DAO for managing Ingredient entities, used for retrieving ingredient details
-	 * for recipes.
-	 */
-	private IngredientDAO ingredientDAO;
-	/**
-	 * Utility class for managing database connections, providing methods to obtain
-	 * database connections.
-	 */
-	private ConnectionUtil connectionUtil;
 
 	/**
+	 * DAO for managing Ingredient entities, used for retrieving ingredient details for recipes.
+	 */
+    @SuppressWarnings("unused")
+	private IngredientDAO ingredientDAO;
+
+    /** A utility class for establishing connections to the database. */
+    @SuppressWarnings("unused")
+    private ConnectionUtil connectionUtil;
+
+    /**
 	 * TODO: Constructs a RecipeDAO instance with specified ChefDAO and IngredientDAO.
 	 *
-	 * @param chefDAO       the ChefDAO used for retrieving chef details.
-	 * @param ingredientDAO the IngredientDAO used for retrieving ingredient
-	 *                      details.
+	 * @param chefDAO - the ChefDAO used for retrieving chef details.
+	 * @param ingredientDAO - the IngredientDAO used for retrieving ingredient details.
+     * @param connectionUtil - the utility used to connect to the database
 	 */
-	public RecipeDAO(ChefDAO chefDAO, IngredientDAO ingredientDAO) {
+	public RecipeDAO(ChefDAO chefDAO, IngredientDAO ingredientDAO, ConnectionUtil connectionUtil) {
 		
 	}
 
-	/**
-	 * Retrieves all recipes from the database.
-	 *
-	 * @return a list of all recipes, or null if an error occurs.
-	 */
-	public List<Recipe> getAllRecipes() {
-return null;
-	}
+    /**
+     * TODO: Retrieves all recipes from the database.
+     * 
+     * @return a list of all Recipe objects
+     */
 
-	/**
-	 * Retrieves a paginated list of all recipes from the database based on the
-	 * specified page options.
-	 *
-	 * @param pageOptions options for pagination including sorting.
-	 * @return a Page object containing the paginated recipes, or null if an error
-	 *         occurs.
-	 */
-	public Page<Recipe> getAllRecipes(PageOptions pageOptions) {
-		return null;
-	}
+    public List<Recipe> getAllRecipes() {
+        return(null);
+    }
 
-	/**
-	 * Searches for recipes by a specified search term.
-	 *
-	 * @param term the search term to filter recipes by name.
-	 * @return a list of recipes that match the search term, or null if an error
-	 *         occurs.
-	 */
-	public List<Recipe> searchRecipesByTerm(String term) {
-		return null;
-	}
+    /**
+     * TODO: Retrieves a paginated list of all recipes from the database.
+     * 
+     * @param pageOptions options for pagination, including page size and page number
+     * @return a paginated list of Recipe objects
+     */
+    public Page<Recipe> getAllRecipes(PageOptions pageOptions) {
+        return null;
+    }
 
-	/**
-	 * Searches for recipes by a specified search term and returns a paginated
-	 * result.
-	 *
-	 * @param term the search term to filter recipes by name.
-	 * @param pageOptions options for pagination including sorting.
-	 * @return a Page object containing the paginated recipes that match the search
-	 *         term, or null if an error occurs.
-	 */
-	public Page<Recipe> searchRecipesByTerm(String term, PageOptions pageOptions) {
-		return null;
-	}
+    /**
+     * TODO: Searches for recipes that match a specified term.
+     * 
+     * @param term the search term to filter recipes by
+     * @return a list of Recipe objects that match the search term
+     */
 
-	/**
-	 * Retrieves a recipe by its unique identifier.
-	 *
-	 * @param id the unique identifier of the recipe.
-	 * @return the Recipe object if found.
-	 */
-	public Recipe getRecipeById(int id) {
-		return null;
-	}
+    public List<Recipe> searchRecipesByTerm(String term) {
+        return null;
+    }
 
-	/**
-	 * Creates a new recipe in the database and returns its generated unique
-	 * identifier.
-	 *
-	 * @param recipe the Recipe object to be created.
-	 * @return the generated unique identifier of the created recipe.
-	 */
-	public int createRecipe(Recipe recipe) {
-		return 0;
-	}
+    /**
+     * TODO: Searches for recipes that match a specified term and returns a paginated result.
+     * 
+     * @param term the search term to filter recipes by
+     * @param pageOptions options for pagination, including page size and page number
+     * @return a paginated list of Recipe objects that match the search term
+     */
 
-	/**
-	 * Updates an existing recipe in the database.
-	 *
-	 * @param recipe the Recipe object containing updated information.
-	 */
-	public void updateRecipe(Recipe recipe) {
-		
+    public Page<Recipe> searchRecipesByTerm(String term, PageOptions pageOptions) {
+        return null;
+    }
 
-	}
+    /**
+     * TODO: Retrieves a specific recipe by its ID.
+     * 
+     * @param id the ID of the recipe to retrieve
+     * @return the Recipe object corresponding to the given ID
+     */
 
-	/**
-	 * Deletes a recipe from the database, along with its associated ingredients.
-	 *
-	 * @param recipe the Recipe object to be deleted.
-	 */
-	public void deleteRecipe(Recipe recipe) {
-		
-	}
+    public Recipe getRecipeById(int id) {
+        return null;
+    }
+        
 
-	// below are helper methods for your convenience
+    /**
+     * TODO: Creates a new recipe in the database.
+     * 
+     * @param recipe the Recipe object to create
+     * @return the ID of the newly created recipe
+     */
+
+    public int createRecipe(Recipe recipe) {
+        return(0);
+    }
+
+    /**
+     * TODO: Updates an existing recipe's instructions and chef_id in the database.
+     * 
+     * @param recipe the Recipe object with updated data
+     */
+
+    public void updateRecipe(Recipe recipe) {
+        
+    }
+
+    /**
+     * TODO: Deletes a specific recipe from the database.
+     * 
+     * @param recipe the Recipe object to delete
+     */
+
+    public void deleteRecipe(Recipe recipe) {
+        
+    }
+
+    // below are helper methods for your convenience
 	
 	/**
 	 * Maps a single row from the ResultSet to a Recipe object.
@@ -179,7 +177,7 @@ return null;
 	 * containing
 	 * the paginated results.
 	 *
-	 * @param set         the ResultSet containing recipe data
+	 * @param set the ResultSet containing recipe data
 	 * @param pageOptions the PageOptions object containing pagination details
 	 * @return a Page object containing the paginated list of Recipe objects
 	 * @throws SQLException if there is an error accessing the ResultSet
@@ -211,3 +209,4 @@ return null;
 		return sliced;
 	}
 }
+

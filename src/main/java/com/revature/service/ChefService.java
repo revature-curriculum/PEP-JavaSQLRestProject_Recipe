@@ -6,80 +6,85 @@ import java.util.Optional;
 import com.revature.model.Chef;
 import com.revature.dao.ChefDAO;
 import com.revature.util.Page;
-import com.revature.util.PageOptions;
 
 /**
- * The ChefService class provides business logic for operations related to Chef entities.
- * 
- * It interacts with the ChefDAO to perform CRUD operations and search functionality.
+ * The ChefService class provides services related to Chef objects,
+ * including CRUD operations and search functionalities. It acts as a 
+ * bridge between the data access layer (ChefDao) and the application 
+ * logic, ensuring that all operations on Chef objects are managed 
+ * consistently and efficiently.
  */
 public class ChefService {
 
-	/** Data access object for Chef entities. */
-	private ChefDAO chefDAO;
+    /** The data access object used for performing operations on Chef entities. */
+    @SuppressWarnings("unused")
+    private ChefDAO chefDAO;
 
-	/**
-     * TODO: Implement a constructor that initalizes an instance of this class with the specified ChefDAO object.
+    /**
+     * TODO: Constructs a ChefService with the specified ChefDAO.
      *
-     * @param chefDao the ChefDAO used for accessing and managing Chef data
+     * @param chefDao the ChefDao to be used by this service for data access
      */
-	public ChefService(ChefDAO chefDAO) {
-	        this.chefDAO = chefDAO;
-	    }
+    public ChefService(ChefDAO chefDAO) {
+        
+    }
 
-	/**
-     * Finds a Chef by their unique identifier.
+    /**
+     * TODO: Finds a Chef by their unique identifier.
      *
-     * @param id the unique identifier of the Chef
-     * @return an Optional containing the Chef if found, or an empty Optional if not found
+     * @param id the unique identifier of the chef to be found
+     * @return an Optional containing the found Chef if present; 
+     *         an empty Optional if not found
      */
-	public Optional<Chef> findChef(int id) {
-		return null;
-	}
+    public Optional<Chef> findChef(int id) {
+        return null; 
+    }
 
-	/**
-     * Saves a Chef entity. If the Chef's ID is zero, a new Chef is created and the `chef` parameter's ID is updated.
-	 * 
+    /**
+     * TODO: Saves a Chef entity. If the Chef's ID is zero, a new Chef is created and the `chef` parameter's ID is updated.
+	* 
      * Otherwise, updates the existing Chef.
      *
      * @param chef the Chef entity to be saved or updated
      */
-	public void saveChef(Chef chef) {
-		
-	}
+    public void saveChef(Chef chef) {
+        
+    }
 
+    
 	/**
-     * Searches for Chefs based on a search term.
+     * TODO: Searches for Chefs based on a search term.
      * If the term is null, retrieves all Chefs.
      *
      * @param term the search term for filtering Chefs by attributes
      * @return a list of Chefs matching the search criteria, or all Chefs if term is null
      */
-	public List<Chef> searchChefs(String term) {
-		return null;
-	}
+    public List<Chef> searchChefs(String term) {
+        return null;
+    }
 
-	/**
-     * Deletes a Chef based on their unique identifier, if they exist.
+    /**
+     * TODO: Deletes a Chef based on their unique identifier, if they exist.
      *
      * @param id the unique identifier of the Chef to be deleted
      */
-	public void deleteChef(int id) {
-		
-	}
+    public void deleteChef(int id) {
+        
+    }
 
-	 /**
-     * Searches for Chefs based on a search term with pagination and sorting options.
+    /**
+     * TODO: Searches for chefs with pagination and sorting options.
      *
-     * @param term the search term for filtering Chefs by attributes
+     * @param term the search term used to find chefs
      * @param page the page number to retrieve
-     * @param pageSize the number of results per page
-     * @param sortBy the field to sort the results by
-     * @param sortDirection the direction of sorting (e.g., "asc" or "desc")
-	 * 
-     * @return a Page object containing the list of Chefs matching the criteria
+     * @param pageSize the number of chefs per page
+     * @param sortBy the field by which to sort the results
+     * @param sortDirection the direction of sorting (ascending or descending)
+     * @return a Page containing the results of the search
      */
-	public Page<Chef> searchChefs(String term, int page, int pageSize, String sortBy, String sortDirection) {
-		return null;
-	}
+	
+    public Page<Chef> searchChefs(String term, int page, int pageSize, String sortBy, String sortDirection) {
+        return null;
+    }
 }
+
