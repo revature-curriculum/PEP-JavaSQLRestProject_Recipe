@@ -6,7 +6,6 @@ import java.util.Optional;
 import com.revature.dao.RecipeDAO;
 import com.revature.model.Recipe;
 import com.revature.util.Page;
-import com.revature.util.PageOptions;
 
 /**
  * The RecipeService class provides services related to Recipe objects,
@@ -21,8 +20,10 @@ public class RecipeService {
     private RecipeDAO recipeDAO;
 
     /**
-     * TODO: Constructs a RecipeService with the specified RecipeDao.
+     * Constructs a RecipeService with the specified RecipeDao.
      *
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
+     * 
      * @param recipeDao the RecipeDao to be used by this service for data access
      */
     public RecipeService(RecipeDAO recipeDAO) {

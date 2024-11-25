@@ -24,7 +24,9 @@ public class AuthenticationController {
     private AuthenticationService authService;
 
     /**
-     * TODO: Constructs an AuthenticationController with its parameters.
+     * Constructs an AuthenticationController with its parameters.
+     * 
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
      * 
      * @param chefService the service used to manage chef-related operations
      * @param authService the service used to manage authentication-related operations

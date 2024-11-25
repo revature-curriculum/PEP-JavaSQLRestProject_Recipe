@@ -8,7 +8,6 @@ import com.revature.service.ChefService;
 
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-import io.javalin.http.HandlerType;
 import io.javalin.http.UnauthorizedResponse;
 /**
  * The AdminMiddleware class is responsible for enforcing access control 

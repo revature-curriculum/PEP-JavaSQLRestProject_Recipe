@@ -22,8 +22,10 @@ public class IngredientController {
     private IngredientService ingredientService;
 
     /**
-     * TODO: Constructs an IngredientController with the specified IngredientService.
+     * Constructs an IngredientController with the specified IngredientService.
      *
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
+     * 
      * @param ingredientService the service used to manage ingredient-related operations
      */
 

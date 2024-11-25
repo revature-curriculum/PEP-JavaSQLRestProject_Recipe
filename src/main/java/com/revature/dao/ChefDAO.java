@@ -5,7 +5,6 @@ import com.revature.util.PageOptions;
 import com.revature.model.Chef;
 import java.util.List;
 import java.util.ArrayList;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -25,7 +24,9 @@ public class ChefDAO {
     private ConnectionUtil connectionUtil;
 
     /** 
-     * TODO: Constructs a ChefDAO with the specified ConnectionUtil for database connectivity.
+     * Constructs a ChefDAO with the specified ConnectionUtil for database connectivity.
+     * 
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
      * 
      * @param connectionUtil the utility used to connect to the database
      */

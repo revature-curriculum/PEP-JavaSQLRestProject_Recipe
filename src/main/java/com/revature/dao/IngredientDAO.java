@@ -26,7 +26,9 @@ public class IngredientDAO {
     private ConnectionUtil connectionUtil;
 
     /**
-     * TODO: Constructs an IngredientDAO with the specified ConnectionUtil for database connectivity.
+     * Constructs an IngredientDAO with the specified ConnectionUtil for database connectivity.
+     * 
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
      * 
      * @param connectionUtil the utility used to connect to the database
      */

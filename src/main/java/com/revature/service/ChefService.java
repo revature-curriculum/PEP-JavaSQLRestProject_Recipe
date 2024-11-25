@@ -21,8 +21,10 @@ public class ChefService {
     private ChefDAO chefDAO;
 
     /**
-     * TODO: Constructs a ChefService with the specified ChefDAO.
+     * Constructs a ChefService with the specified ChefDAO.
      *
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
+     * 
      * @param chefDao the ChefDao to be used by this service for data access
      */
     public ChefService(ChefDAO chefDAO) {

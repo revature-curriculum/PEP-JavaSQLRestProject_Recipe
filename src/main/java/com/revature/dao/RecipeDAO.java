@@ -38,8 +38,10 @@ public class RecipeDAO {
     private ConnectionUtil connectionUtil;
 
     /**
-	 * TODO: Constructs a RecipeDAO instance with specified ChefDAO and IngredientDAO.
+	 * Constructs a RecipeDAO instance with specified ChefDAO and IngredientDAO.
 	 *
+	 * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
+	 * 
 	 * @param chefDAO - the ChefDAO used for retrieving chef details.
 	 * @param ingredientDAO - the IngredientDAO used for retrieving ingredient details.
      * @param connectionUtil - the utility used to connect to the database

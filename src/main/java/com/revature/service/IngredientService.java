@@ -22,8 +22,10 @@ public class IngredientService {
     private IngredientDAO ingredientDAO;
 
     /**
-     * TODO: Constructs an IngredientService with the specified IngredientDao.
+     * Constructs an IngredientService with the specified IngredientDao.
      *
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
+     * 
      * @param ingredientDao the IngredientDao to be used by this service for data access
      */
 
