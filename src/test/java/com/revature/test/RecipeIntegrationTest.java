@@ -134,7 +134,7 @@ class RecipeIntegrationTest {
 	@Test
 	void testPostRecipe() throws Exception {
 
-		Recipe newRecipe = new Recipe(6, "fried fish", "fish, oil, stove", chefList.get(0));
+		Recipe newRecipe = new Recipe(6, "fried fish", "fish, oil, stove", chefList.get(3));
 		RequestBody recipeBody = RequestBody.create(new JavalinJackson().toJsonString(newRecipe, Recipe.class),
 				MediaType.get("application/json; charset=utf-8"));
 		Request recipeRequest = new Request.Builder().url(BASE_URL + "/recipes").addHeader("Authorization", "Bearer " + token)
