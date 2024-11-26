@@ -7,6 +7,7 @@ This project is a Java-based backend application designed to manage recipes, che
 - Navigate to `main/java/com/revature/model` and familiarize yourself with the files within the package. These files represent the domain objects of this program. They do not need to be edited.
 - The `DAO` layer will be expected to handle pagination operations, so you will ensure these classes interact with a generic `Page` class and a `PageOption` class. Pagination is a technique used in applications to break down large sets of results (such as those returned from a database query) into smaller, more manageable chunks, or pages. Both of the pagination related files can be found under the `main/java/com/revature/util` folder. These files do not need any revisions, but ensure that you familiarize yourself with these files.
 - There is also a `ConnectionUtil.java` file in the `main/java/com/revature/util` folder. You should also review, but not edit, this file in order to understand how the application will access the database.
+- If you are working on this project locally and NOT in Gitpod, please ensure the `pom.xml` file is updated to the version of Java you are using. You can get this version by opening the command prompt and typing `java -version.` This will tell you the version of Java you are currently working with. For this project, you will need to work with any version between 9 and 22. If you are using version 22, you will need to uncomment the bytebuddy dependency that is located at the bottom of the `pom.xml` file.
 
 ## Requirements
 
