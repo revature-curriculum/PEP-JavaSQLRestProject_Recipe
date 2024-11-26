@@ -1,14 +1,10 @@
-
 package com.revature.controller;
-
-import com.revature.model.Ingredient;
-import com.revature.service.IngredientService;
-import com.revature.util.Page;
 
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
-import java.util.Optional;
+import com.revature.service.IngredientService;
+
 
 /**
  * The IngredientController class handles operations related to ingredients. It allows for creating, retrieving, updating, and deleting individual ingredients, as well as retrieving a list of all ingredients. 
@@ -18,34 +14,42 @@ import java.util.Optional;
 
 public class IngredientController {
 
-    /**  A service that manages ingredient-related operations. */
+    /**
+     * A service that manages ingredient-related operations.
+     */
+
+    @SuppressWarnings("unused")
     private IngredientService ingredientService;
 
     /**
-     * TODO: Implement a constructor that initializes the IngredientController with the specified IngredientService.
+     * Constructs an IngredientController with the specified IngredientService.
      *
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
+     * 
      * @param ingredientService the service used to manage ingredient-related operations
      */
+
     public IngredientController(IngredientService ingredientService) {
         
     }
 
     /**
      * TODO: Retrieves a single ingredient by its ID.
-     * If the ingredient exists, responds with a 200 OK status and the ingredient data.
-     * If not found, responds with a 404 Not Found status.
+     * 
+     * If the ingredient exists, responds with a 200 OK status and the ingredient data. If not found, responds with a 404 Not Found status.
      *
      * @param ctx the Javalin context containing the request path parameter for the ingredient ID
      */
     public void getIngredient(Context ctx) {
         
     }
-     
+
     /**
      * TODO: Deletes an ingredient by its ID.
+     * 
      * Responds with a 204 No Content status.
      *
-     * @param ctx the Javalin context containing the request path parameter for the ingredient ID
+     * @param ctx the Javalin context containing the request path parameter for the ingredient id
      */
     public void deleteIngredient(Context ctx) {
         
@@ -53,27 +57,29 @@ public class IngredientController {
 
     /**
      * TODO: Updates an existing ingredient by its ID.
-     * If the ingredient exists, updates it and responds with a 204 No Content status.
-     * If not found, responds with a 404 Not Found status.
+     * 
+     * If the ingredient exists, updates it and responds with a 204 No Content status. If not found, responds with a 404 Not Found status.
      *
      * @param ctx the Javalin context containing the request path parameter and updated ingredient data in the request body
      */
     public void updateIngredient(Context ctx) {
-        
+       
     }
 
     /**
      * TODO: Creates a new ingredient.
+     * 
      * Saves the ingredient and responds with a 201 Created status.
      *
      * @param ctx the Javalin context containing the ingredient data in the request body
      */
     public void createIngredient(Context ctx) {
-       
+
     }
 
     /**
      * TODO: Retrieves a paginated list of ingredients, or all ingredients if no pagination parameters are provided.
+     * 
      * If pagination parameters are included, returns ingredients based on page, page size, sorting, and filter term.
      *
      * @param ctx the Javalin context containing query parameters for pagination, sorting, and filtering
@@ -82,7 +88,7 @@ public class IngredientController {
        
     }
 
-   /**
+    /**
      * A helper method to retrieve a query parameter from the context as a specific class type, or return a default value if the query parameter is not present.
      *
      * @param <T> the type of the query parameter
@@ -112,3 +118,4 @@ public class IngredientController {
         app.delete("/ingredients/{id}", this::deleteIngredient);
     }
 }
+

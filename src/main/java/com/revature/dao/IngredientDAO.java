@@ -1,37 +1,43 @@
 package com.revature.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.model.Ingredient;
 import com.revature.util.ConnectionUtil;
 import com.revature.util.Page;
 import com.revature.util.PageOptions;
+import com.revature.model.Ingredient;
+
+
+
 
 /**
- * Data Access Object (DAO) for performing CRUD operations on Ingredient
- * entities. This class provides methods to create, read, update, and delete
- * Ingredient records in the database.
+ * The IngredientDAO class handles the CRUD operations for Ingredient objects. It provides methods for creating, retrieving, updating, and deleting Ingredient records from the database. 
+ * 
+ * This class relies on the ConnectionUtil class for database connectivity and also supports searching and paginating through Ingredient records.
  */
+
 public class IngredientDAO {
 
-    /** Utility for obtaining database connections. */
+    /** A utility class used for establishing connections to the database. */
+    @SuppressWarnings("unused")
     private ConnectionUtil connectionUtil;
 
     /**
-     * TODO: Implement the constructor so that it initializes the ConnectionUtil.
+     * Constructs an IngredientDAO with the specified ConnectionUtil for database connectivity.
+     * 
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
+     * 
+     * @param connectionUtil the utility used to connect to the database
      */
-    public IngredientDAO() {
-
+    public IngredientDAO(ConnectionUtil connectionUtil) {
+        
     }
 
     /**
-     * Retrieves an Ingredient record by its unique identifier.
+     * TODO: Retrieves an Ingredient record by its unique identifier.
      *
      * @param id the unique identifier of the Ingredient to retrieve.
      * @return the Ingredient object with the specified id.
@@ -41,7 +47,7 @@ public class IngredientDAO {
     }
 
     /**
-     * Creates a new Ingredient record in the database.
+     * TODO: Creates a new Ingredient record in the database.
      *
      * @param ingredient the Ingredient object to be created.
      * @return the unique identifier of the created Ingredient.
@@ -51,8 +57,7 @@ public class IngredientDAO {
     }
 
     /**
-     * Deletes an Ingredient record from the database, including references in
-     * related tables.
+     * TODO: Deletes an ingredient record from the database, including references in related tables.
      *
      * @param ingredient the Ingredient object to be deleted.
      */
@@ -61,7 +66,7 @@ public class IngredientDAO {
     }
 
     /**
-     * Updates an existing Ingredient record in the database.
+     * TODO: Updates an existing Ingredient record in the database.
      *
      * @param ingredient the Ingredient object containing updated information.
      */
@@ -70,7 +75,7 @@ public class IngredientDAO {
     }
 
     /**
-     * Retrieves all Ingredient records from the database.
+     * TODO: Retrieves all ingredient records from the database.
      *
      * @return a list of all Ingredient objects.
      */
@@ -79,7 +84,7 @@ public class IngredientDAO {
     }
 
     /**
-     * Retrieves all Ingredient records from the database with pagination options.
+     * TODO: Retrieves all ingredient records from the database with pagination options.
      *
      * @param pageOptions options for pagination and sorting.
      * @return a Page of Ingredient objects containing the retrieved ingredients.
@@ -89,7 +94,7 @@ public class IngredientDAO {
     }
 
     /**
-     * Searches for Ingredient records by a search term in the name.
+     * TODO: Searches for Ingredient records by a search term in the name.
      *
      * @param term the search term to filter Ingredient names.
      * @return a list of Ingredient objects that match the search term.
@@ -99,7 +104,7 @@ public class IngredientDAO {
     }
 
     /**
-     * Searches for Ingredient records by a search term in the name with pagination options.
+     * TODO: Searches for Ingredient records by a search term in the name with pagination options.
      *
      * @param term the search term to filter Ingredient names.
      * @param pageOptions options for pagination and sorting.

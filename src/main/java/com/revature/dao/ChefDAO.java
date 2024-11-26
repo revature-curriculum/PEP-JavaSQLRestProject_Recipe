@@ -1,54 +1,60 @@
 package com.revature.dao;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.revature.model.Chef;
 import com.revature.util.ConnectionUtil;
 import com.revature.util.Page;
 import com.revature.util.PageOptions;
+import com.revature.model.Chef;
+import java.util.List;
+import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 /**
- * Data Access Object (DAO) for performing CRUD operations on Chef entities. This class provides methods to create, read, update, and delete Chef records in the database.
+ * The ChefDAO class abstracts the CRUD operations for Chef objects.
+ * It provides functionality to interact with the database for performing 
+ * operations such as creating, retrieving, updating, and deleting Chef records. 
+ * 
+ * The class primarily uses a ConnectionUtil object to connect to the database and includes methods for searching, paginating, and mapping results from database queries.
  */
+
 public class ChefDAO {
 
-    /** Utility for obtaining database connections. */
+    /** A utility class for establishing connections to the database. */
+    @SuppressWarnings("unused")
     private ConnectionUtil connectionUtil;
 
-    /**
-     * TODO: Implement the constructor so that it initializes the ConnectionUtil.
+    /** 
+     * Constructs a ChefDAO with the specified ConnectionUtil for database connectivity.
+     * 
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
+     * 
+     * @param connectionUtil the utility used to connect to the database
      */
-    public ChefDAO() {
-
+    public ChefDAO(ConnectionUtil connectionUtil) {
+        
     }
 
-     /**
-     * Retrieves all Chef records from the database. 
-     *
-     * @return a list of all Chef objects.
+    /**
+     * TODO: Retrieves all chefs from the database.
+     * 
+     * @return a list of all Chef objects
      */
     public List<Chef> getAllChefs() {
         return null;
     }
 
     /**
-     * Retrieves all Chef records from the database with pagination options.
-     *
-     * @param pageOptions options for pagination and sorting.
-     * @return a Page of Chef objects.
+     * TODO: Retrieves a paginated list of all chefs from the database.
+     * 
+     * @param pageOptions options for pagination, including page size and page number
+     * @return a paginated list of Chef objects
      */
     public Page<Chef> getAllChefs(PageOptions pageOptions) {
         return null;
     }
 
     /**
-     * Retrieves a Chef record by its unique identifier.
+     * TODO: Retrieves a Chef record by its unique identifier.
      *
      * @param id the unique identifier of the Chef to retrieve.
      * @return the Chef object, if found.
@@ -58,7 +64,7 @@ public class ChefDAO {
     }
 
     /**
-     * Creates a new Chef record in the database.
+     * TODO: Creates a new Chef record in the database.
      *
      * @param chef the Chef object to be created.
      * @return the unique identifier of the created Chef.
@@ -68,7 +74,7 @@ public class ChefDAO {
     }
 
     /**
-     * Updates an existing Chef record in the database.
+     * TODO: Updates an existing Chef record in the database.
      *
      * @param chef the Chef object containing updated information.
      */
@@ -77,7 +83,7 @@ public class ChefDAO {
     }
 
     /**
-     * Deletes a Chef record from the database.
+     * TODO: Deletes a Chef record from the database.
      *
      * @param chef the Chef object to be deleted.
      */
@@ -86,7 +92,7 @@ public class ChefDAO {
     }
 
     /**
-     * Searches for Chef records by a search term in the username.
+     * TODO: Searches for Chef records by a search term in the username.
      *
      * @param term the search term to filter Chef usernames.
      * @return a list of Chef objects that match the search term.
@@ -96,16 +102,17 @@ public class ChefDAO {
     }
 
     /**
-     * Searches for Chef records by a search term in the username with pagination options.
-     *
-     * @param term the search term to filter Chef usernames.
-     * @param pageOptions options for pagination and sorting.
-     * @return a Page of Chef objects containing the retrieved chefs.
+     * TODO: Searches for chefs based on a specified term and returns a paginated result.
+     * 
+     * @param term the search term to filter chefs by
+     * @param pageOptions options for pagination, including page size and page number
+     * @return a paginated list of Chef objects that match the search term
      */
     public Page<Chef> searchChefsByTerm(String term, PageOptions pageOptions) {
         return null;
     }
 
+    
     // below are helper methods that are included for your convenience
 
     /**
@@ -172,3 +179,4 @@ public class ChefDAO {
         return sliced;
     }
 }
+

@@ -1,34 +1,40 @@
 package com.revature.service;
-
 import java.util.List;
 import java.util.Optional;
 
-import com.revature.model.Ingredient;
 import com.revature.dao.IngredientDAO;
+import com.revature.model.Ingredient;
 import com.revature.util.Page;
-import com.revature.util.PageOptions;
+
 
 /**
- * The IngredientService class provides business logic for operations related to Ingredient entities.
- * 
- * It interacts with the IngredientDAO to perform CRUD operations and search functionality.
+ * The IngredientService class provides services related to Ingredient 
+ * objects, including CRUD operations and search functionalities. It serves 
+ * as a mediator between the data access layer (IngredientDao) and the 
+ * application logic, ensuring that all operations on Ingredient objects 
+ * are performed consistently and efficiently.
  */
+
 public class IngredientService {
 
-    /** Data access object for Ingredient entities. */
+    /** The data access object used for performing operations on Ingredient entities. */
+    @SuppressWarnings("unused")
     private IngredientDAO ingredientDAO;
 
     /**
-     * TODO: Implement a constructor that initializes an instance of this class with the specified IngredientDAO object.
+     * Constructs an IngredientService with the specified IngredientDao.
      *
-     * @param ingredientDAO the IngredientDAO used for accessing and managing Ingredient data
+     * TODO: Finish the implementation so that this class's instance variables are initialized accordingly.
+     * 
+     * @param ingredientDao the IngredientDao to be used by this service for data access
      */
+
     public IngredientService(IngredientDAO ingredientDAO) {
-        
+       
     }
 
     /**
-     * Finds an Ingredient by its unique identifier.
+     * TODO: Finds an Ingredient by its unique identifier.
      *
      * @param id the unique identifier of the Ingredient
      * @return an Optional containing the Ingredient if found, or an empty Optional if not found
@@ -38,37 +44,7 @@ public class IngredientService {
     }
 
     /**
-     * Saves an Ingredient entity. If the Ingredient's ID is zero, a new Ingredient is created and the `ingredient` parameter's ID is updated.
-     * Otherwise, updates the existing Ingredient.
-     *
-     * @param ingredient the Ingredient entity to be saved or updated
-     */
-    public void saveIngredient(Ingredient ingredient) {
-        
-    }
-
-    /**
-     * Deletes an Ingredient based on its unique identifier, if it exists.
-     *
-     * @param id the unique identifier of the Ingredient to be deleted
-     */
-    public void deleteIngredient(int id) {
-        
-    }
-
-    /**
-     * Searches for Ingredients based on a search term.
-     * If the term is null, retrieves all Ingredients.
-     *
-     * @param term the search term for filtering Ingredients by attributes
-     * @return a list of Ingredients matching the search criteria, or all Ingredients if term is null
-     */
-    public List<Ingredient> searchIngredients(String term) {
-        return null;
-    }
-
-    /**
-     * Searches for Ingredients based on a search term with pagination and sorting options.
+     * TODO: Searches for Ingredients based on a search term with pagination and sorting options.
      *
      * @param term the search term for filtering Ingredients by attributes
      * @param page the page number to retrieve
@@ -79,5 +55,37 @@ public class IngredientService {
      */
     public Page<Ingredient> searchIngredients(String term, int page, int pageSize, String sortBy, String sortDirection) {
         return null;
+    }
+
+    /**
+     * TODO: Searches for Ingredients based on a search term.
+     * If the term is null, retrieves all Ingredients.
+     *
+     * @param term the search term used to find ingredients
+     * @return a list of Ingredient objects that match the search term
+     */
+    public List<Ingredient> searchIngredients(String term) {
+        return null;
+    }
+
+    /**
+     * TODO: Deletes an Ingredient by its unique identifier, if it exists.
+     *
+     * @param id the unique identifier of the ingredient to be deleted
+     */
+
+    public void deleteIngredient(int id) {
+        
+    }
+
+    /**
+     * TODO: Saves an Ingredient entity. If the Ingredient's ID is zero, a new Ingredient is created and the `ingredient` parameter's ID is updated.
+     * 
+     * Otherwise, updates the existing Ingredient.
+     *
+     * @param ingredient the Ingredient entity to be saved or updated
+     */
+    public void saveIngredient(Ingredient ingredient) {
+        
     }
 }
