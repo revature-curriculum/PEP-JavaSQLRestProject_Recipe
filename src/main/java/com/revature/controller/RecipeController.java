@@ -45,7 +45,9 @@ public class RecipeController {
     /**
      * TODO: Handler for fetching a recipe by its ID.
      * 
-     * Responds with a 200 OK status and the recipe if found, or 404 Not Found with a result of "Recipe not found".
+     * If successful, responds with a 200 status code and the recipe as the response body.
+     * 
+     * If unsuccessful, responds with a 404 status code and a result of "Recipe not found".
      */
     public Handler fetchRecipeById = ctx -> {
         
@@ -64,7 +66,9 @@ public class RecipeController {
     /**
      * TODO: Handler for deleting a recipe by its id.
      * 
-     * Responds with a 200 OK status.
+     * If successful, responds with a 200 status and result of "Recipe deleted successfully."
+     * 
+     * Otherwise, responds with a 404 status and a result of "Recipe not found."
      */
     public Handler deleteRecipe = ctx -> {
         int id = Integer.parseInt(ctx.pathParam("id"));
@@ -74,7 +78,9 @@ public class RecipeController {
     /**
      * TODO: Handler for updating a recipe by its ID.
      * 
-     * Responds with a 200 OK status.
+     * If successful, responds with a 200 status code and the updated recipe as the response body.
+     * 
+     * If unsuccessfuly, responds with a 404 status code and a result of "Recipe not found."
      */
     public Handler updateRecipe = ctx -> {
 
